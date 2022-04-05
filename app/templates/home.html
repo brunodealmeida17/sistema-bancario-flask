@@ -1,0 +1,109 @@
+{% if current_user.is_authenticated %}
+{% extends "menu.html"%}
+
+{%block title%} {{super()}} - Home{%endblock%}
+{% block menu%}
+
+<div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Saldo</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$: {{ current_user.saldo}}</div>
+                        
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-800"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            DADOS DA SUA CONTA</div>
+                        <div class="h6 mb-0 font-weight-bold text-gray-800"> Nome: {{ current_user.nome}}</div>
+                        <div class="h6 mb-0 font-weight-bold text-gray-800 mt-2"> CPF: {{ current_user.cpf}}</div>    
+                        <div class="h6 mb-0 font-weight-bold text-gray-800 mt-2"> Conta: {{ current_user.conta}}</div>
+                        <div class="h6 mb-0 font-weight-bold text-gray-800 mt-2"> Agencia: {{ current_user.agencia}}</div>
+
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-gray-800"></i>
+                    </div>
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-4 col-md-8 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Dados do cartão ativo
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h6 mb-0 mr-6 font-weight-bold text-gray-800">Numero do cartão</div>
+                                <div class="h5 mb-0 mr-2 font-weight text-gray-500">5555666677778884</div>
+                            </div>
+                            <div class="col-left">
+                                <div class="h6 mb-0 mr-6 font-weight-bold text-gray-800">validade</div>
+                                <div class="h5 mb-0 mr-2 font-weight text-gray-500">12/30</div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="h6 mb-0 mr-6 font-weight-bold text-gray-800">Nome do titular</div>
+                                <div class="h5 mb-0 mr-2 font-weight text-gray-500">{{current_user.nome}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="h6 mb-0 mr-6 font-weight-bold text-gray-800">CVV</div>
+                                <div class="h5 mb-0 mr-2 font-weight text-gray-500">123</div>
+                            </div>                                                 
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fa fa-credit-card fa-2x text-gray-800"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    
+</div>
+
+
+
+ {% endblock %}
+ {% block proj %}
+ {% endblock %}
+
+
+{% else %}  
+    {url_for(index)}
+
+
+
+
+{% endif %}
+
+
+
+
+

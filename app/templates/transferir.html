@@ -1,0 +1,55 @@
+{%if current_user.is_authenticated %}
+
+{%extends "menu.html"%}
+
+{%block title%} {{super()}} - Transação{%endblock%}
+
+{%block menu%}
+
+
+<div class="row">
+        <div class="col-xl-6 col-md-8 mb-6">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            TRANSFERIR</div>
+                            <form action="" method="POST">
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <div class="h9 mb-0 font-weight-bold text-gray-600">R$: {{ current_user.saldo}}</div>
+                                <input  name="conta_destino" class="form-control bg-light border-0 small mt-2" placeholder="Conta de destino" required >
+                                <input  name="cpf_destino" class="form-control bg-light border-0 small mt-2" placeholder="cpf de destino" required>
+                                <input  name="valor_dep" type = "number" class="form-control bg-light border-0 small mt-2" placeholder="valor" required>                                 
+                                <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-4"><i
+                                class="fas fa-download fa-sm text-white-50"></i> TRANSFERIR </button>
+                            </div>
+                             </form>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-800"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+{% endblock %}
+{% block proj %}
+{% endblock %}
+
+
+{% else %}
+
+return 
+
+
+{% endif %}
+
+
+
